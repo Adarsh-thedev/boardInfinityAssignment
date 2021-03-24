@@ -20,6 +20,8 @@ exports.addTask = (req, res) => {
       });
     }
     res.json({
+      success: true,
+      message: `${task.name} has been created successfully and will expire after ${task.duration} minutes`,
       name: task.name,
       description: task.description,
       createdBy: task.createdBy,
