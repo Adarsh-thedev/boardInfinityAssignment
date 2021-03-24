@@ -30,7 +30,7 @@ const taskSchema = new Schema({
   },
 });
 
-Task.tasks.index(
+taskSchema.index(
   { createdAt: 1 },
   { expireAfterSeconds: taskSchema.duration * 60 }
 );
