@@ -12,10 +12,11 @@ app.use(express.json());
 app.use(cors());
 
 mongoose.connect(
-  "mongodb://localhost:27017/bi-test",
+  process.env.DB,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useCreateIndex: true,
   },
   () => {
     console.log("DB Connected");
