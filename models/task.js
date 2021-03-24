@@ -1,37 +1,35 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const taskSchema = new Schema({
-  name: {
-    type: String,
-    unique: true,
-    required: true,
-    maxlength: 100,
+const taskSchema = new Schema(
+  {
+    name: {
+      type: String,
+      unique: true,
+      required: true,
+      maxlength: 100,
+    },
+    description: {
+      type: String,
+      required: true,
+      maxlength: 2000,
+    },
+    creator: {
+      type: String,
+      required: true,
+      maxlength: 32,
+    },
+    duration: {
+      type: Number,
+      required: true,
+      trim: true,
+    },
   },
-  description: {
-    type: String,
-    required: true,
-    maxlength: 2000,
-  },
-  creator: {
-    type: String,
-    required: true,
-    maxlength: 32,
-  },
-  duration: {
-    type: Number,
-    required: true,
-    trim: true,
-  },
-  createdAt: {
-    type: Date,
-    required: true,
-    default: Date.now,
-  },
-});
+  { timestamp: true }
+);
 
 taskSchema.index(
-  { expiresAt: 1 },
+  { createdAt: 1 },
   { expireAfterSeconds: taskSchema.duration * 60 }
 );
 
