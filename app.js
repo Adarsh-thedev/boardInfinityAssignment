@@ -25,6 +25,6 @@ mongoose.connect(
 //my routes
 app.use("/api", taskRoutes);
 
-app.listen(8000, () => {
+app.listen(process.env.PORT || 8000, () => {
   console.log("app is running");
 });
