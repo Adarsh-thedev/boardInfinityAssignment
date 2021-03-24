@@ -30,6 +30,6 @@ const taskSchema = new Schema({
   },
 });
 
-taskSchema.createIndex({ expire_at: 1 }, { expireAfterSeconds: 5 });
+taskSchema.createIndex({ createdAt: 1 }, { expireAfterSeconds: 5 });
 
 module.exports = mongoose.model("Task", taskSchema);
