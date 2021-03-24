@@ -31,7 +31,7 @@ const taskSchema = new Schema({
 });
 
 taskSchema.index(
-  { createdAt: 1 },
+  { expiresAt: 1 },
   { expireAfterSeconds: taskSchema.duration * 60 }
 );
 
