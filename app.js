@@ -11,6 +11,7 @@ const taskRoutes = require("./routes/task");
 app.use(express.json());
 app.use(cors());
 
+//can be used locally as well as with the url
 mongoose.connect(
   process.env.DB || "mongodb://localhost:27017/bi-test",
   {

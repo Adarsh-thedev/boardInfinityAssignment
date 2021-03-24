@@ -4,11 +4,14 @@ exports.addTask = (req, res) => {
   const task = new Task(req.body);
   task.save((err, task) => {
     if (!task || err) {
+      //duplicate tasks
       if (err.code === 11000) {
         return res
           .status(400)
           .json("Please make sure the task is not dupicate");
-      } else if (err.message) {
+      }
+      //in case of db specific error
+      else if (err.message) {
         return res.status(400).json({
           error: err.message,
         });
