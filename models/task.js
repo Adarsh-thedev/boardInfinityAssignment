@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const taskSchema = new Schema({
   name: {
     type: String,
+    unique: true,
     required: true,
     maxlength: 100,
   },
