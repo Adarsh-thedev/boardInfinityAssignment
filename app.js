@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(cors());
 
 mongoose.connect(
-  process.env.DB,
+  process.env.DB || "mongodb://localhost:27017/bi-test",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -26,6 +26,8 @@ mongoose.connect(
 //my routes
 app.use("/api", taskRoutes);
 
-app.listen(process.env.PORT || 8000, () => {
+const PORT = process.env.PORT || 8000;
+
+app.listen(PORT, () => {
   console.log(`app is running on PORT ${process.env.PORT}`);
 });
