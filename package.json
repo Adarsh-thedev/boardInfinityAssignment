@@ -1,6 +1,9 @@
 {
   "name": "bi-assignment",
   "version": "1.0.0",
+  "engines": {
+    "node": "14.x"
+  },
   "description": "assignment for sde intern role",
   "main": "app.js",
   "scripts": {
